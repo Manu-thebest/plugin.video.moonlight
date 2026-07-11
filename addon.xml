@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<addon id="plugin.video.moonlight" name="Moonlight Game Streaming" version="1.0.3" provider-name="Manu">
+    <requires>
+        <import addon="xbmc.python" version="3.0.0"/>
+    </requires>
+    <extension point="xbmc.python.pluginsource" library="default.py">
+        <provides>executable</provides>
+    </extension>
+    <extension point="xbmc.addon.metadata">
+        <summary lang="es_ES">Streaming de juegos desde Sunshine vía Moonlight</summary>
+        <description lang="es_ES">Conecta con un host Sunshine, lista los juegos disponibles (solo texto) y lanza el streaming a través de Moonlight (Flatpak) con los parámetros de vídeo y audio configurados en los ajustes del addon.</description>
+        <disclaimer lang="es_ES">Requiere tener Sunshine instalado y en ejecución en el PC host, y Moonlight instalado vía Flatpak en este equipo.</disclaimer>
+        <platform>linux</platform>
+        <license>MIT</license>
+        <news>1.0.3: Kodi se minimiza solo al lanzar Moonlight (builtin Minimize) e intenta restaurarse al terminar (wmctrl/xdotool si estan disponibles). Nuevo ajuste 'Controlador de audio SDL' (SDL_AUDIODRIVER, por defecto 'pulse') para corregir el audio que no sonaba hasta minimizar y restaurar Moonlight. 1.0.2: Corregido el listado de juegos: se dejo de usar 'list -csv' (mezclaba enlaces/URLs junto al nombre) y se paso a 'list' en texto plano, descartando URLs y lineas de log. 1.0.1: Quitadas las caratulas (SteamGridDB) para simplificar; lista de solo texto con el icono del addon. 1.0.0: Primera version. Conexion y emparejamiento con Sunshine, lanzamiento de Moonlight via Flatpak (con soporte flatpak-spawn si Kodi tambien corre en Flatpak), Wake-on-LAN.</news>
+        <assets>
+            <icon>icon.png</icon>
+            <fanart>fanart.jpg</fanart>
+        </assets>
+    </extension>
+</addon>
