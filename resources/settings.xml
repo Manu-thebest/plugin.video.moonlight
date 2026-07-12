@@ -1,0 +1,34 @@
+<settings>
+    <category label="Sunshine (PC host)">
+        <setting id="host_ip" type="ipaddress" label="Dirección IP del host" default="192.168.1.43"/>
+        <setting id="host_mac" type="text" label="Dirección MAC del host (para Wake-on-LAN)" default=""/>
+        <setting id="pair_pin" type="text" label="PIN de emparejamiento (4 dígitos)" default="1234"/>
+        <setting id="do_pair" type="action" label="Emparejar ahora" action="RunPlugin(plugin://plugin.video.moonlight/?action=pair)"/>
+        <setting id="do_wol" type="action" label="Encender PC (Wake-on-LAN)" action="RunPlugin(plugin://plugin.video.moonlight/?action=wol)"/>
+        <setting id="connect_timeout" type="number" label="Timeout de conexión al listar juegos (segundos)" default="8"/>
+    </category>
+
+    <category label="Streaming (Moonlight)">
+        <setting id="moonlight_flatpak_id" type="text" label="ID del Flatpak de Moonlight" default="com.moonlight_stream.Moonlight"/>
+        <setting id="resolution" type="select" label="Resolución" values="720p|1080p|1440p|4K|Personalizada" default="1080p"/>
+        <setting id="custom_resolution" type="text" label="Resolución personalizada, solo si arriba pones 'Personalizada' (AnchoxAlto)" default="1920x1080"/>
+        <setting id="fps" type="select" label="FPS" values="30|60|90|120" default="60"/>
+        <setting id="bitrate" type="number" label="Bitrate (Kbps)" default="20000"/>
+        <setting id="codec" type="select" label="Códec de vídeo" values="auto|H.264|HEVC|AV1" default="auto"/>
+        <setting id="display_mode" type="select" label="Modo de pantalla" values="fullscreen|windowed|borderless" default="fullscreen"/>
+        <setting id="audio_config" type="select" label="Configuración de audio" values="stereo|5.1-surround|7.1-surround" default="stereo"/>
+        <setting id="audio_driver" type="select" label="Controlador de audio SDL (arregla el audio ausente hasta minimizar/restaurar)" values="pulse|pipewire|alsa|Automático" default="pulse"/>
+        <setting id="audio_on_host" type="bool" label="Reproducir audio también en el host" default="false"/>
+        <setting id="vsync" type="bool" label="V-Sync" default="true"/>
+        <setting id="hdr" type="bool" label="HDR" default="false"/>
+        <setting id="yuv444" type="bool" label="YUV 4:4:4" default="false"/>
+        <setting id="game_optimization" type="bool" label="Optimizaciones de Sunshine (sops)" default="true"/>
+        <setting id="quit_after" type="bool" label="Cerrar el juego en el host al terminar el streaming" default="true"/>
+        <setting id="keep_awake" type="bool" label="Evitar que la pantalla se apague durante el streaming" default="true"/>
+    </category>
+
+    <category label="Avanzado">
+        <setting id="debug_logging" type="bool" label="Registro de depuración en kodi.log" default="false"/>
+        <setting id="extra_args" type="text" label="Argumentos extra para Moonlight (separados por espacio)" default=""/>
+    </category>
+</settings>

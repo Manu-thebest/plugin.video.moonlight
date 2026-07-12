@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<addon id="plugin.video.moonlight" name="Moonlight Game Streaming" version="1.1.0" provider-name="Manu">
+    <requires>
+        <import addon="xbmc.python" version="3.0.0"/>
+    </requires>
+    <extension point="xbmc.python.pluginsource" library="default.py">
+        <provides>executable</provides>
+    </extension>
+    <extension point="xbmc.addon.metadata">
+        <summary lang="es_ES">Streaming de juegos desde Sunshine vía Moonlight</summary>
+        <description lang="es_ES">Conecta con un host Sunshine, lista los juegos disponibles (solo texto) y lanza el streaming a través de Moonlight (Flatpak) con los parámetros de vídeo y audio configurados en los ajustes del addon.</description>
+        <disclaimer lang="es_ES">Requiere tener Sunshine instalado y en ejecución en el PC host, y Moonlight instalado vía Flatpak en este equipo.</disclaimer>
+        <platform>linux</platform>
+        <license>MIT</license>
+        <news>1.1.0: Cambio de arquitectura tras revisar la documentacion oficial de Kodi (kodi.wiki/view/External_players). En vez de minimizar/restaurar la ventana a mano (Minimize + wmctrl/xdotool, poco fiable), ahora se usa el mecanismo NATIVO de Kodi para reproductores externos: se genera/actualiza userdata/playercorefactory.xml con un ExternalPlayer que tiene hidexbmc=true, y el lanzamiento se hace via PlayMedia(). Es Kodi quien oculta su propia ventana y la recupera al terminar, no el addon. Se quita el ajuste de silenciar Kodi (ya no aplica con este modelo). 1.0.9 y anteriores: intentos manuales de gestion de ventana (retirados).</news>
+        <assets>
+            <icon>icon.png</icon>
+            <fanart>fanart.jpg</fanart>
+        </assets>
+    </extension>
+</addon>

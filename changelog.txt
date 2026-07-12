@@ -1,0 +1,11 @@
+v1.1.0
+- Cambio completo de arquitectura: ahora usa playercorefactory.xml (mecanismo nativo de Kodi para reproductores externos)
+- Eliminado el hack de minimizar/restaurar ventana (Minimize + wmctrl/xdotool)
+- Kodi oculta y restaura su ventana automáticamente
+- Se quita el ajuste de silenciar Kodi (ya no aplica)
+- Mejora en la detección de Flatpak vs nativo
+- Soporte para argumentos extra en Moonlight
+- Mejor logging de depuración
+
+v1.0.9 y anteriores
+- Versiones con gestión manual de ventanas (retiradas)
