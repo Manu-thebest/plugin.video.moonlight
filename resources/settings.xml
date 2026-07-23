@@ -15,7 +15,7 @@
         <setting id="fps" type="select" label="FPS" values="30|60|90|120" default="60"/>
         <setting id="bitrate" type="number" label="Bitrate (Kbps)" default="20000"/>
         <setting id="codec" type="select" label="Códec de vídeo" values="auto|H.264|HEVC|AV1" default="auto"/>
-        <setting id="display_mode" type="select" label="Modo de pantalla" values="fullscreen|windowed|borderless" default="fullscreen"/>
+        <setting id="display_mode" type="select" label="Modo de pantalla" values="fullscreen|windowed|borderless" default="borderless"/>
         <setting id="audio_config" type="select" label="Configuración de audio" values="stereo|5.1-surround|7.1-surround" default="stereo"/>
         <setting id="audio_driver" type="select" label="Controlador de audio SDL (arregla el audio ausente hasta minimizar/restaurar)" values="pulse|pipewire|alsa|Automático" default="pulse"/>
         <setting id="audio_on_host" type="bool" label="Reproducir audio también en el host" default="false"/>
@@ -25,6 +25,7 @@
         <setting id="game_optimization" type="bool" label="Optimizaciones de Sunshine (sops)" default="true"/>
         <setting id="quit_after" type="bool" label="Cerrar el juego en el host al terminar el streaming" default="true"/>
         <setting id="keep_awake" type="bool" label="Evitar que la pantalla se apague durante el streaming" default="true"/>
+        <setting id="mute_kodi" type="bool" label="Silenciar Kodi mientras dura el streaming" default="true"/>
     </category>
 
     <category label="Avanzado">

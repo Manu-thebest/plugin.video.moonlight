@@ -8,6 +8,7 @@ https://github.com/moonlight-stream/moonlight-qt/blob/master/app/cli/commandline
 """
 import os
 import subprocess
+import time
 import xbmc
 import kodiutils as ku
 
@@ -149,13 +150,8 @@ def pair(host, pin):
 
 
 def build_stream_argv(host, app_name):
-    """
-    Construye la lista completa de argumentos para lanzar el streaming
-    (incluye el prefijo flatpak-spawn si aplica), sin ejecutarla. El
-    lanzamiento real lo hace Kodi a traves de playercorefactory.xml (ver
-    resources/lib/playercore.py), que es el mecanismo nativo de Kodi para
-    ceder la pantalla a un reproductor externo y recuperarla despues.
-    """
+    """Construye la lista completa de argumentos para lanzar el streaming
+    (incluye el prefijo flatpak-spawn si aplica), sin ejecutarla."""
     flatpak_flags = []
     audio_driver = ku.get_setting('audio_driver')
     if audio_driver and audio_driver.strip().lower() not in ('automático', 'automatico', 'auto', ''):
@@ -181,6 +177,23 @@ def build_stream_argv(host, app_name):
         args += extra.split()
 
     return args
+
+
+def stream(host, app_name):
+    """Lanza el streaming de app_name directamente (metodo fiable: esto es
+    lo que de verdad arranca el juego; el intento via playercorefactory.xml
+    no llegaba a lanzar nada)."""
+    args = build_stream_argv(host, app_name)
+    ku.log('Ejecutando stream: ' + ' '.join(args), xbmc.LOGINFO)
+    t0 = time.time()
+    try:
+        result = subprocess.run(args)
+        ku.log('El proceso de stream TERMINO: rc=%s tras %.1f s'
+               % (result.returncode, time.time() - t0), xbmc.LOGINFO)
+        return result.returncode
+    except Exception as e:
+        ku.log('Error lanzando streaming: ' + str(e), xbmc.LOGERROR)
+        return -1
 
 
 def quit_running(host):

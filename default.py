@@ -21,7 +21,6 @@ import xbmcgui
 import xbmcplugin
 import kodiutils as ku
 import moonlight
-import playercore
 import wol
 
 HANDLE = int(sys.argv[1]) if len(sys.argv) > 1 else -1
@@ -73,18 +72,31 @@ def route_stream(game_name):
     if not game_name:
         return
     host = ku.get_setting('host_ip')
-
-    if not playercore.update_playercorefactory(host, game_name):
-        xbmcgui.Dialog().ok('Moonlight',
-                             'No se pudo preparar el lanzamiento. Activa el registro de '
-                             'depuracion (Ajustes > Avanzado) y revisa el kodi.log.')
-        return
+    mute_pref = ku.get_setting_bool('mute_kodi')
+    was_muted = xbmc.getCondVisibility('Player.Muted')
+    if mute_pref and not was_muted:
+        xbmc.executebuiltin('Mute')
 
     xbmcgui.Dialog().notification('Moonlight', 'Iniciando ' + game_name + '...',
                                    xbmcgui.NOTIFICATION_INFO, 2000)
 
-    url = playercore.PROTOCOL + '://' + urllib.parse.quote(game_name)
-    xbmc.executebuiltin('PlayMedia(%s)' % url)
+    ku.log('route_stream: minimizando Kodi', xbmc.LOGINFO)
+    ku.try_minimize_kodi_window()
+
+    ku.log('route_stream: lanzando moonlight stream', xbmc.LOGINFO)
+    rc = moonlight.stream(host, game_name)
+
+    ku.log('route_stream: stream rc=%s -> restaurando Kodi' % rc, xbmc.LOGINFO)
+    ku.try_restore_kodi_window()
+
+    if mute_pref and not was_muted:
+        xbmc.executebuiltin('Mute')
+
+    if rc != 0:
+        xbmcgui.Dialog().notification(
+            'Moonlight',
+            'Moonlight termino con un aviso (codigo %s). Activa el registro de depuracion si quieres mas detalle.' % rc,
+            xbmcgui.NOTIFICATION_WARNING, 5000)
 
 
 def route_pair():

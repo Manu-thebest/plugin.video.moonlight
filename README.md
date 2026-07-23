@@ -8,7 +8,7 @@
 - 🎮 **Streaming con un clic** — Lanza Moonlight (Flatpak) con la resolución, FPS, bitrate y códec que configures.
 - 🔗 **Emparejamiento integrado** — Asistente para emparejar con Sunshine desde el propio addon.
 - ⚡ **Wake-on-LAN** — Enciende el PC host enviando un paquete mágico.
-- 🪟 **Ocultación nativa de Kodi** — Usa `playercorefactory.xml` (mecanismo oficial de Kodi para reproductores externos), sin hacks de ventanas.
+- 🪟 **Gestión de ventana de Kodi** — Minimiza Kodi al lanzar y lo restaura al terminar el stream (libwnck del host vía `flatpak-spawn`, compatible con MATE/Marco). Modo `borderless` por defecto para que el cambio de modo de vídeo no despierte a Kodi.
 - 🔧 **Multiplataforma** — Funciona tanto con Kodi nativo como con Kodi Flatpak.
 
 ## 📋 Requisitos

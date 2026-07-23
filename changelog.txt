@@ -1,5 +1,12 @@
+v1.2.0
+- Se retira playercorefactory.xml (1.1.x): no llegaba a arrancar los juegos. Vuelta al lanzamiento directo por subprocess, fiable
+- Minimiza la ventana de Kodi antes de lanzar Moonlight y la restaura al terminar, via libwnck del host (flatpak-spawn + XIconifyWindow/ICCCM). Marco/MATE ignora el estado HIDDEN de EWMH, por eso wmctrl -b add,hidden no servia
+- display_mode por defecto pasa a borderless (fullscreen-desktop): la causa raiz de "Kodi vuelve solo" era que el fullscreen exclusivo de Moonlight cambiaba el modo de video de la TV y el evento RandR hacia que Kodi re-inicializara GL/audio y re-mapeara su ventana. Con borderless no hay cambio de modo y Kodi permanece minimizado (diagnosticado con kodi.log + vigilante de WM_STATE)
+- Logs del ciclo de vida del stream a nivel INFO (minimizado, lanzamiento, fin con rc y duracion, restauracion): diagnostico sin activar el debug de Kodi
+- Nuevo helper resources/lib/x11_window.py (corre con el python3 del host)
+
 v1.1.0
-- Cambio completo de arquitectura: ahora usa playercorefactory.xml (mecanismo nativo de Kodi para reproductores externos)
+- Cambio completo de arquitectura: playercorefactory.xml (RETIRADO: no arrancaba juegos)
 - Eliminado el hack de minimizar/restaurar ventana (Minimize + wmctrl/xdotool)
 - Kodi oculta y restaura su ventana automáticamente
 - Se quita el ajuste de silenciar Kodi (ya no aplica)
