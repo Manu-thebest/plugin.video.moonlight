@@ -1,21 +1,19 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<addon id="plugin.video.moonlight" name="Moonlight Game Streaming" version="1.2.1" provider-name="Manu">
-    <requires>
-        <import addon="xbmc.python" version="3.0.0"/>
-    </requires>
-    <extension point="xbmc.python.pluginsource" library="default.py">
-        <provides>game</provides>
-    </extension>
-    <extension point="xbmc.addon.metadata">
-        <summary lang="es_ES">Streaming de juegos desde Sunshine vía Moonlight</summary>
-        <description lang="es_ES">Conecta con un host Sunshine, lista los juegos disponibles (solo texto) y lanza el streaming a través de Moonlight (Flatpak) con los parámetros de vídeo y audio configurados en los ajustes del addon.</description>
-        <disclaimer lang="es_ES">Requiere tener Sunshine instalado y en ejecución en el PC host, y Moonlight instalado vía Flatpak en este equipo.</disclaimer>
-        <platform>linux</platform>
-        <license>MIT</license>
-        <news>1.2.1: El addon pasa de la sección Programas a la sección Juegos (provides executable → game, como hace IAGL). Sin cambios funcionales. 1.2.0: Se retira la via playercorefactory.xml (1.1.x, no arrancaba los juegos) y se vuelve al lanzamiento directo por subprocess, que si funciona de forma fiable. Nuevo: minimiza la ventana de Kodi antes de lanzar Moonlight y la restaura al terminar, usando libwnck del host via flatpak-spawn (XIconifyWindow/ICCCM) — wmctrl/EWMH hidden no funciona con Marco/MATE. Modo de pantalla borderless por defecto: evita el cambio de modo de video de Moonlight, cuyo evento RandR hacia que Kodi re-iniciara GL/audio y volviera a aparecer solo encima del juego (causa raiz diagnosticada con kodi.log). Logs del ciclo de vida del stream a nivel INFO. 1.1.x: intento con playercorefactory.xml (retirado). 1.0.x: versiones iniciales.</news>
-        <assets>
-            <icon>icon.png</icon>
-            <fanart>fanart.jpg</fanart>
-        </assets>
-    </extension>
-</addon>
+[B]1.2.2[/B]
+- El addon aparece ahora en Juegos Y en Programas (provides: game executable).
+- Necesario para poder añadirlo como acceso directo en la skin Confluence, que no tiene seccion Juegos.
+
+[B]1.2.1[/B]
+- El addon pasa de la seccion Programas a la seccion Juegos (provides: executable -> game, como hace IAGL).
+- Sin cambios funcionales.
+
+[B]1.2.0[/B]
+- Se retira la via playercorefactory.xml (1.1.x, no arrancaba los juegos) y se vuelve al lanzamiento directo por subprocess, que funciona de forma fiable.
+- Nuevo: minimiza la ventana de Kodi antes de lanzar Moonlight y la restaura al terminar, usando libwnck del host via flatpak-spawn (XIconifyWindow/ICCCM). wmctrl/EWMH hidden no funciona con Marco/MATE.
+- Modo de pantalla borderless por defecto: evita el cambio de modo de video de Moonlight, cuyo evento RandR hacia que Kodi re-iniciara GL/audio y volviera a aparecer solo encima del juego (causa raiz diagnosticada con kodi.log).
+- Logs del ciclo de vida del stream a nivel INFO.
+
+[B]1.1.x[/B]
+- Intento con playercorefactory.xml (retirado).
+
+[B]1.0.x[/B]
+- Versiones iniciales.
