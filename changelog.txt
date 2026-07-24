@@ -1,6 +1,8 @@
+[B]1.2.3[/B]
+- Se revierte a la seccion Programas (provides: executable) — el experimento con la seccion Juegos no funciono bien con la skin Confluence.
+
 [B]1.2.2[/B]
-- El addon aparece ahora en Juegos Y en Programas (provides: game executable).
-- Necesario para poder añadirlo como acceso directo en la skin Confluence, que no tiene seccion Juegos.
+- provides: game executable (revertido en 1.2.3).
 
 [B]1.2.1[/B]
 - El addon pasa de la seccion Programas a la seccion Juegos (provides: executable -> game, como hace IAGL).
