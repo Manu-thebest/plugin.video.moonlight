@@ -1,3 +1,6 @@
+[B]1.2.4[/B]
+- provides: video game, copiando la estructura de IAGL — aparece en Juegos y en Add-ons de video, asi Confluence puede usarlo como acceso directo.
+
 [B]1.2.3[/B]
 - Se revierte a la seccion Programas (provides: executable) — el experimento con la seccion Juegos no funciono bien con la skin Confluence.
 
