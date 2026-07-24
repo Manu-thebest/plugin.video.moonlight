@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<addon id="plugin.video.moonlight" name="Moonlight Game Streaming" version="1.2.0" provider-name="Manu">
+<addon id="plugin.video.moonlight" name="Moonlight Game Streaming" version="1.2.1" provider-name="Manu">
     <requires>
         <import addon="xbmc.python" version="3.0.0"/>
     </requires>
     <extension point="xbmc.python.pluginsource" library="default.py">
-        <provides>executable</provides>
+        <provides>game</provides>
     </extension>
     <extension point="xbmc.addon.metadata">
         <summary lang="es_ES">Streaming de juegos desde Sunshine vía Moonlight</summary>
@@ -12,7 +12,7 @@
         <disclaimer lang="es_ES">Requiere tener Sunshine instalado y en ejecución en el PC host, y Moonlight instalado vía Flatpak en este equipo.</disclaimer>
         <platform>linux</platform>
         <license>MIT</license>
-        <news>1.2.0: Se retira la via playercorefactory.xml (1.1.x, no arrancaba los juegos) y se vuelve al lanzamiento directo por subprocess, que si funciona de forma fiable. Nuevo: minimiza la ventana de Kodi antes de lanzar Moonlight y la restaura al terminar, usando libwnck del host via flatpak-spawn (XIconifyWindow/ICCCM) — wmctrl/EWMH hidden no funciona con Marco/MATE. Modo de pantalla borderless por defecto: evita el cambio de modo de video de Moonlight, cuyo evento RandR hacia que Kodi re-iniciara GL/audio y volviera a aparecer solo encima del juego (causa raiz diagnosticada con kodi.log). Logs del ciclo de vida del stream a nivel INFO. 1.1.x: intento con playercorefactory.xml (retirado). 1.0.x: versiones iniciales.</news>
+        <news>1.2.1: El addon pasa de la sección Programas a la sección Juegos (provides executable → game, como hace IAGL). Sin cambios funcionales. 1.2.0: Se retira la via playercorefactory.xml (1.1.x, no arrancaba los juegos) y se vuelve al lanzamiento directo por subprocess, que si funciona de forma fiable. Nuevo: minimiza la ventana de Kodi antes de lanzar Moonlight y la restaura al terminar, usando libwnck del host via flatpak-spawn (XIconifyWindow/ICCCM) — wmctrl/EWMH hidden no funciona con Marco/MATE. Modo de pantalla borderless por defecto: evita el cambio de modo de video de Moonlight, cuyo evento RandR hacia que Kodi re-iniciara GL/audio y volviera a aparecer solo encima del juego (causa raiz diagnosticada con kodi.log). Logs del ciclo de vida del stream a nivel INFO. 1.1.x: intento con playercorefactory.xml (retirado). 1.0.x: versiones iniciales.</news>
         <assets>
             <icon>icon.png</icon>
             <fanart>fanart.jpg</fanart>
