@@ -24,7 +24,7 @@ import moonlight
 import wol
 
 HANDLE = int(sys.argv[1]) if len(sys.argv) > 1 else -1
-BASE_URL = sys.argv[0] if len(sys.argv) > 0 else 'plugin://plugin.video.moonlight/'
+BASE_URL = sys.argv[0] if len(sys.argv) > 0 else 'plugin://plugin.game.moonlight/'
 
 
 def build_url(**kwargs):
