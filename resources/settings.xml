@@ -3,8 +3,8 @@
         <setting id="host_ip" type="ipaddress" label="Dirección IP del host" default="192.168.1.43"/>
         <setting id="host_mac" type="text" label="Dirección MAC del host (para Wake-on-LAN)" default=""/>
         <setting id="pair_pin" type="text" label="PIN de emparejamiento (4 dígitos)" default="1234"/>
-        <setting id="do_pair" type="action" label="Emparejar ahora" action="RunPlugin(plugin://plugin.video.moonlight/?action=pair)"/>
-        <setting id="do_wol" type="action" label="Encender PC (Wake-on-LAN)" action="RunPlugin(plugin://plugin.video.moonlight/?action=wol)"/>
+        <setting id="do_pair" type="action" label="Emparejar ahora" action="RunPlugin(plugin://plugin.game.moonlight/?action=pair)"/>
+        <setting id="do_wol" type="action" label="Encender PC (Wake-on-LAN)" action="RunPlugin(plugin://plugin.game.moonlight/?action=wol)"/>
         <setting id="connect_timeout" type="number" label="Timeout de conexión al listar juegos (segundos)" default="8"/>
     </category>
 
